@@ -1,4 +1,6 @@
 import { ChangeEventHandler } from "react";
+import Dropdown from "./Dropdown";
+import { LANGUAGES } from "../../common/languages";
 import { actions } from "./duck";
 import styled from "@emotion/styled";
 import { useDispatch } from "react-redux";
@@ -11,21 +13,31 @@ const Search: React.VFC = () => {
   };
 
   return (
-    <form action="/" method="get">
+    <SearchContainer>
       <SearchInput
         type="text"
         id="search"
+        autoFocus
         aria-label="search"
-        placeholder="Search GitHub Repositories"
+        placeholder="Search Repositories"
         onChange={onChangeHandler}
         name="s"
       />
+      <StyledDropdown>
+        {Object.keys(LANGUAGES).map((item) => (
+          <option key={item}>{item}</option>
+        ))}
+      </StyledDropdown>
       <SearchButton type="submit">Search</SearchButton>
-    </form>
+    </SearchContainer>
   );
 };
 
 // STYLES
+const SearchContainer = styled.div({
+  display: "block",
+});
+
 const SearchInput = styled.input`
   padding: 10px 20px;
   border: solid 2px #686868;
@@ -37,6 +49,14 @@ const SearchInput = styled.input`
     transition: 0.5s;
   }
 `;
+
+const StyledDropdown = styled(Dropdown)({
+  padding: "10px 20px",
+  border: "solid 2px #005ad8",
+  borderRadius: "5px",
+  marginRight: "5px",
+  outline: "none",
+});
 
 const SearchButton = styled.button`
   padding: 10px 20px;

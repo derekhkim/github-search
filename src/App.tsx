@@ -31,6 +31,7 @@ const AppContainer = styled.div({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  margin: "10px",
 });
 
 export default App;
