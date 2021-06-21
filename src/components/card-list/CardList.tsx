@@ -1,4 +1,4 @@
-import Card from "../card";
+import Card from "./Card";
 import { getRepositories } from "../search-bar/duck";
 import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
@@ -22,9 +22,9 @@ const CardList: React.VFC = () => {
   );
 };
 
-const CardListContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
+const CardListContainer = styled.div({
+  display: "flex",
+  flexWrap: "wrap",
+});
 
 export default CardList;

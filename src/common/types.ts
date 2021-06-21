@@ -1,8 +1,11 @@
-export type RootState = {};
+export type RootState = {
+  githubSearch: SearchState;
+};
 
 export type SearchState = {
-  query: string;
-  repositories: RepositoryData[];
+  query?: string;
+  language?: string;
+  repositories?: RepositoryData[];
 };
 
 export type RepositoryData = {
